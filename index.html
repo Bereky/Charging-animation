@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Charging Animation</title>
+        <meta name="charging animation" content="animation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="./stylew.css">
+        <link rel="stylesheet" href="./style/style.css">
+
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="object-container">
+                <div class="charger-object__container">
+                    <div class="charger-object">
+                        <div class="charger"></div>
+                        <div class="charger-coat"></div>
+                        <img src="./asset/current.svg" alt="" class="current-image">
+                        <div id="fill-percentage"></div>
+                    </div>
+                </div>
+                <div class="toggler-object__container">
+                    <div class="toggler-object">
+                        <div class="toggler" id="toggler">
+                            <button class="off" id="toggle-btn"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JavaScript -->
+        <script src="./main.js"></script>
+    </body>
+</html>

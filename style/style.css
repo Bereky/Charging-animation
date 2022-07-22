@@ -1,0 +1,207 @@
+body {
+  margin: 0%;
+  background: linear-gradient(rgb(70, 69, 69), rgb(51, 51, 51) 19%);
+}
+
+.container {
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.object-container {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.charger-object__container {
+  height: 350px;
+  width: 400px;
+  min-width: 150px;
+  background-color: rgb(27, 27, 27);
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.charger-object {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.charger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 150px;
+  border-style: solid;
+  border-radius: 0px;
+  border-color: rgb(255, 255, 255);
+  border-width: 3px;
+  position: relative;
+  z-index: 5;
+}
+
+.charger-coat {
+  height: 20px;
+  width: 55px;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1px;
+  top: 8%;
+  left: 33.5%;
+  z-index: 4;
+}
+
+.current-image {
+  display: none;
+  position: absolute;
+  width: 80px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+#fill-percentage {
+  height: 40px;
+  width: 98%;
+  position: absolute;
+  background-color: rgb(221, 36, 36);
+  border-color: rgb(255, 255, 255);
+  left: 1px;
+  bottom: 50px;
+  z-index: 0;
+}
+
+.animate-fill {
+  animation-name: chargingAnimation;
+  animation-duration: 3.5s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function: step-start;
+}
+
+/* Charging animation eyframe */
+@keyframes chargingAnimation {
+  20% {
+    height: 40px;
+    background-color: rgb(221, 36, 36);
+  }
+  40% {
+    height: 85px;
+    background-color: rgb(255, 255, 255);
+  }
+  60% {
+    height: 140px;
+    background-color: rgb(255, 255, 255);
+  }
+  80% {
+    height: 195px;
+    background-color: rgb(255, 255, 255);
+  }
+  100% {
+    height: 251px;
+    background-color: rgb(255, 255, 255);
+  }
+}
+/* Styling for the toggler */
+.toggler-object__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 350px;
+  width: 400px;
+  min-width: 150px;
+  background-color: rgb(27, 27, 27);
+  box-shadow: 2px 0px 1px 1px rgb(27, 27, 27);
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.toggler-object {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 125px;
+  width: 185px;
+  background: linear-gradient(rgb(65, 65, 65), rgb(32, 32, 31) 15%, rgb(48, 48, 48), rgb(41, 41, 41));
+  border-radius: 5px;
+}
+
+#toggler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 120px;
+  border-style: groove;
+  border-radius: 50px;
+  border-color: rgb(77, 76, 76);
+  border-width: 1.5px;
+  position: relative;
+  background-color: rgb(27, 27, 27);
+  cursor: pointer;
+}
+
+#toggle-btn {
+  height: 95%;
+  width: 50%;
+  position: absolute;
+  border-radius: 50px;
+  background: linear-gradient(rgb(58, 58, 58), rgb(27, 27, 27) 50%, rgb(36, 36, 36));
+  cursor: pointer;
+}
+
+.on {
+  border-style: groove;
+  border-color: rgb(39, 186, 66);
+  animation-name: togglerOnAnimation;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease out;
+  animation-fill-mode: forwards;
+}
+
+.off {
+  border-style: groove;
+  border-color: rgb(183, 56, 27);
+  animation-name: togglerOffAnimation;
+  animation-duration: 0.9s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease out;
+  animation-fill-mode: forwards;
+}
+
+/* Toggler Sliding Animation */
+@keyframes togglerOnAnimation {
+  0% {
+    left: 2%;
+  }
+  100% {
+    left: 48%;
+  }
+}
+@keyframes togglerOffAnimation {
+  0% {
+    left: 48%;
+  }
+  100% {
+    left: 2%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

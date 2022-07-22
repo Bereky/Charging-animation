@@ -1,0 +1,210 @@
+@mixin flexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin animationProperty {
+    animation-duration: .9s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease out;
+    animation-fill-mode: forwards;
+}
+
+@mixin heightWidth ($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin borderProp ($style, $color, $raduis, $width) {
+    border-style: $style;
+    border-radius: $raduis;
+    border-color: $color;
+    border-width: $width;
+}
+
+@mixin heightAndBackground($height, $background){
+    height: $height;
+    background-color: $background;
+}
+
+$color1: rgb(255, 255, 255);
+$color2: rgb(27, 27, 27);
+
+
+body {
+    margin: 0%;
+    background: linear-gradient(rgb(70, 69, 69), rgb(51, 51, 51) 19%);
+}
+
+.container {
+    @include heightWidth(100vh, auto);
+    @include flexContainer;
+    min-height: 100vh;
+}
+
+.object-container {
+    @include heightWidth(300px, 100%);
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.charger-object__container {
+    @include heightWidth(350px, 400px);
+    min-width: 150px;
+    background-color: $color2;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.charger-object {
+    @include flexContainer;
+    position: relative;
+}
+
+.charger{
+    @include flexContainer;
+    @include heightWidth(250px, 150px);
+    @include borderProp(solid, $color1, 0px, 3px);
+    position: relative;
+    z-index: 5;
+}
+
+.charger-coat {
+    @include heightWidth(20px, 55px);
+    position: absolute;
+    background-color: $color1;
+    border-radius: 1px;
+    top: 8%;
+    left: 33.5%;
+    z-index: 4;
+}
+
+.current-image {
+    display: none;
+    position: absolute;
+    width: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+#fill-percentage {
+    @include heightWidth(40px, 98%);
+    position: absolute;
+    background-color: rgb(221, 36, 36);
+    border-color: $color1;
+    left: 1px;
+    bottom: 50px;
+    z-index: 0;
+}
+
+
+.animate-fill {
+    animation-name: chargingAnimation;
+    animation-duration: 3.5s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: step-start;
+}
+
+/* Charging animation eyframe */
+
+@keyframes chargingAnimation {
+    0% {
+
+    }
+    20% {
+        @include heightAndBackground(40px, rgb(221, 36, 36));
+    }
+    40% {
+        @include heightAndBackground(85px, $color1)
+    }
+    60% {
+        @include heightAndBackground(140px, $color1);
+    }
+    80% {
+        @include heightAndBackground(195px, $color1);
+    }
+    100% {
+        @include heightAndBackground(251px, $color1);
+    }
+}
+
+
+/* Styling for the toggler */
+
+.toggler-object__container {
+    @include flexContainer;
+    @include heightWidth(350px, 400px);
+    min-width: 150px;
+    background-color: $color2;
+    box-shadow: 2px 0px 1px 1px $color2;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.toggler-object {
+    @include flexContainer;
+    @include heightWidth(125px, 185px);
+    background: linear-gradient(rgb(65, 65, 65), rgb(32, 32, 31) 15%, rgb(48, 48, 48), rgb(41, 41, 41));
+    border-radius: 5px;
+}
+
+#toggler {
+    @include flexContainer;
+    @include heightWidth(60px, 120px);
+    @include borderProp(groove, rgb(77, 76, 76), 50px, 1.5px);
+    position: relative;
+    background-color: $color2;
+    cursor: pointer;
+}
+
+#toggle-btn {
+    @include heightWidth(95%, 50%);
+    position: absolute;
+    border-radius: 50px;
+    background: linear-gradient(rgb(58, 58, 58), rgb(27, 27, 27) 50%, rgb(36, 36, 36));
+    cursor: pointer;
+}
+
+.on {
+    border-style: groove;
+    border-color: rgb(39, 186, 66);
+    animation-name: togglerOnAnimation;
+    @include animationProperty;
+    
+}
+
+.off {
+    border-style: groove;
+    border-color: rgb(183, 56, 27);
+    animation-name: togglerOffAnimation;
+    @include animationProperty;
+}
+
+/* Toggler Sliding Animation */
+
+@keyframes togglerOnAnimation {
+    0% {
+        left: 2%;
+    }
+    100% {
+        left: 48%;
+    }
+}
+
+@keyframes togglerOffAnimation {
+    0% {
+        left: 48%;
+    }
+    100% {
+        left: 2%;
+    }
+}

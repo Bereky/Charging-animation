@@ -1,8 +1,4 @@
+# Classic Phone Charging Animation
 
-## To run the app
-
-  ```sh
-  npm install
-  npm start
-  ```
+## Preview project [HERE](https://quiet-pie-2513e8.netlify.app/)
   
